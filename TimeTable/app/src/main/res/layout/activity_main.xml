@@ -1,0 +1,121 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:scrollbars="none">
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <!--左边的课时数-->
+            <LinearLayout
+                android:id="@+id/llclass"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp"></LinearLayout>
+            <!--星期一到日，七个线性容器-->
+            <LinearLayout
+                android:id="@+id/ll1"
+                style="@style/day_ll">
+
+                <TextView
+                    style="@style/day_tv"
+                    android:text="MON" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll2"
+                style="@style/day_ll">
+
+                <TextView
+                    style="@style/day_tv"
+                    android:text="TUE" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll3"
+                style="@style/day_ll">
+
+                <TextView
+                    style="@style/day_tv"
+                    android:text="WED" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll4"
+                style="@style/day_ll">
+
+                <TextView
+                    style="@style/day_tv"
+                    android:text="THU" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll5"
+                style="@style/day_ll">
+
+                <TextView
+                    style="@style/day_tv"
+                    android:text="FRI" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll6"
+                style="@style/day_ll">
+
+                <TextView
+                    style="@style/day_tv"
+                    android:text="SAT" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll7"
+                style="@style/day_ll">
+
+                <TextView
+                    style="@style/day_tv"
+                    android:text="SUN" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+</ScrollView>
