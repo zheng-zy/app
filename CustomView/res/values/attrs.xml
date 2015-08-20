@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NumText">
+        <attr name="lineNum" format="integer"/>
+        <attr name="xScroll" format="boolean" />
+    </declare-styleable>
+</resources>

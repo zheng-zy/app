@@ -1,0 +1,36 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:nt="http://schemas.android.com/apk/res/com.costom.view"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.costom.view.v1.MyView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00ff00"
+        android:visibility="gone" />
+
+    <com.costom.view.v2.LogicView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <com.costom.view.v3.LogicView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible" />
+
+    <com.costom.view.v3.MyText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        android:visibility="gone"/>
+    
+    <com.costom.view.v4.NumText 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        nt:lineNum="6"
+        nt:xScroll="true"
+        android:visibility="gone"/>
+
+</FrameLayout>
