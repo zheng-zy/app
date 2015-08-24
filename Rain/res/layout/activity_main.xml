@@ -1,0 +1,17 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:rain="http://schemas.android.com/apk/res/com.jikexueyuan.rain"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <com.jikexueyuan.rain.v2.RainView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ff000000"
+        rain:rainNum="50"
+        rain:size="100"
+        rain:rainColor="0xff00ff00"
+        rain:randColor="true"/>
+    
+</FrameLayout>
