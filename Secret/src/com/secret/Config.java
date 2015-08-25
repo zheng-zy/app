@@ -5,7 +5,7 @@ import android.content.SharedPreferences.Editor;
 
 public class Config {
 	// public static final String SERVER_URL = "http://demo.eoeschool.com/api/v1/nimings/io";
-	public static final String SERVER_URL = "http://192.168.15.34:8080/SecretServer/api.jsp";
+	public static final String SERVER_URL = "http://192.168.1.101:8080/SecretServer/api.jsp";
 
 	public static final String KEY_TOKEN = "token";
 	public static final String KEY_ACTION = "action";
@@ -37,9 +37,9 @@ public class Config {
 
 
 	/**
-	 * 获取缓存在sharepreferences中的键值对
+	 * 鑾峰彇缂撳瓨鍦╯harepreferences涓殑閿�瀵�
 	 * @param context
-	 * @param key		键值：KEY_TOKEN  KEY_PHONE_NUM
+	 * @param key		閿�锛欿EY_TOKEN  KEY_PHONE_NUM
 	 * @return
 	 */
 	 
@@ -48,9 +48,9 @@ public class Config {
 	}
 
 	/**
-	 * 存储sharepreferences中的键值对
+	 * 瀛樺偍sharepreferences涓殑閿�瀵�
 	 * @param context
-	 * @param key		键值：KEY_TOKEN  KEY_PHONE_NUM
+	 * @param key		閿�锛欿EY_TOKEN  KEY_PHONE_NUM
 	 * @param value
 	 */
 	 

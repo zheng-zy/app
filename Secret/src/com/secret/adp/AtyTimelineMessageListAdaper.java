@@ -18,12 +18,12 @@ public class AtyTimelineMessageListAdaper extends BaseAdapter {
 	private Context context = null;
 
 	public void clear() {
-		messages.clear();
+		this.messages.clear();
 		notifyDataSetChanged();
 	}
 
 	public void addAll(List<Message> messages) {
-		messages.addAll(messages);
+		this.messages.addAll(messages);
 		notifyDataSetChanged();
 	}
 
@@ -37,12 +37,12 @@ public class AtyTimelineMessageListAdaper extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		return messages.size();
+		return this.messages.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		return messages.get(position);
+		return this.messages.get(position);
 	}
 
 	@Override
@@ -59,13 +59,13 @@ public class AtyTimelineMessageListAdaper extends BaseAdapter {
 			holder = new ViewHolder();
 			holder.msg = (TextView) convertView.findViewById(R.id.tvMsg);
 			holder.msgId = (TextView) convertView.findViewById(R.id.tvMsgId);
-			holder.msg.setText(messages.get(position).getMsg());
-			holder.msgId.setText(messages.get(position).getMsgId());
+			holder.msg.setText(this.messages.get(position).getMsg());
+			holder.msgId.setText(this.messages.get(position).getMsgId());
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
-			holder.msg.setText(messages.get(position).getMsg());
-			holder.msgId.setText(messages.get(position).getMsgId());
+			holder.msg.setText(this.messages.get(position).getMsg());
+			holder.msgId.setText(this.messages.get(position).getMsgId());
 		}
 
 		return convertView;
