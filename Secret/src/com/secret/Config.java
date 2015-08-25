@@ -4,13 +4,23 @@ import android.content.Context;
 import android.content.SharedPreferences.Editor;
 
 public class Config {
-	public static final String SERVER_URL = "http://demo.eoeschool.com/api/v1/nimings/io";
+	// public static final String SERVER_URL = "http://demo.eoeschool.com/api/v1/nimings/io";
+	public static final String SERVER_URL = "http://192.168.15.34:8080/SecretServer/api.jsp";
 
 	public static final String KEY_TOKEN = "token";
 	public static final String KEY_ACTION = "action";
 	public static final String KEY_PHONE_NUM = "phone";
 	public static final String KEY_STATUS = "status";
-	
+	public static final String KEY_PHONE_MD5 = "phone_md5";
+	public static final String KEY_CODE = "code";
+	public static final String KEY_CONTACTS = "contacts";
+	public static final String KEY_PAGE = "page";
+	public static final String KEY_PREPAGE = "perpage";
+	public static final String KEY_TIMELINE = "timeline";
+	public static final String KEY_MSG_ID = "msgId";
+	public static final String KEY_MSG = "msg";
+	public static final String KEY_ITEMS = "items";
+
 	public static final int RESULT_STATUS_SUCCESS = 1;
 	public static final int RESULT_STATUS_FAIL = 0;
 	public static final int RESULT_STATUS_INVALID_TOKEN = 2;
@@ -19,26 +29,34 @@ public class Config {
 	public static final String CHARSET = "utf-8";
 
 	public static final String ACTION_GET_CODE = "send_pass";
+	public static final String ACTION_LOGIN = "login";
+	public static final String ACTION_UPLOAD_CONTACTS = "upload_contacts";
+	public static final String ACTION_TIMELINE = "timeline";
+
+
+
 
 	/**
-	 * 获取缓存在sharepreferences中的token
-	 * 
+	 * 获取缓存在sharepreferences中的键值对
 	 * @param context
+	 * @param key		键值：KEY_TOKEN  KEY_PHONE_NUM
 	 * @return
 	 */
-	public static String getCachedToken(Context context) {
-		return context.getSharedPreferences(APP_ID, context.MODE_PRIVATE).getString(KEY_TOKEN, null);
+	 
+	public static String getCachedValue(Context context, String key) {
+		return context.getSharedPreferences(APP_ID, context.MODE_PRIVATE).getString(key, null);
 	}
 
 	/**
-	 * 存储token
-	 * 
+	 * 存储sharepreferences中的键值对
 	 * @param context
-	 * @param token
+	 * @param key		键值：KEY_TOKEN  KEY_PHONE_NUM
+	 * @param value
 	 */
-	public static void cacheToken(Context context, String token) {
+	 
+	public static void cacheValue(Context context, String key, String value) {
 		Editor editor = context.getSharedPreferences(APP_ID, Context.MODE_PRIVATE).edit();
-		editor.putString(KEY_TOKEN, token);
+		editor.putString(key, value);
 		editor.commit();
 
 	}
