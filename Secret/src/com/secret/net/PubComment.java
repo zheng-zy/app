@@ -5,11 +5,17 @@ import org.json.JSONObject;
 
 import com.secret.Config;
 
-public class UploadContacts {
-
-	public void uploadContacts(String phone_md5, String token, String contacts, final SuccessCallBack successCallBack,
-			final FailCallBack failCallBack) {
-		new NetConnection(Config.SERVER_URL, HttpMethod.GET, new NetConnection.SuccessCallBack() {
+/**
+ * 
+ * @author zhengzy
+ * @data 2015年8月26日 下午1:54:58
+ * @version V1.0
+ * @describe 发表评论通信类
+ */
+public class PubComment {
+	public PubComment(String phone_md5, String token, String content, String msgId,
+			final SuccessCallBack successCallBack, final FailCallBack failCallBack) {
+		new NetConnection(Config.SERVER_URL, HttpMethod.POST, new NetConnection.SuccessCallBack() {
 
 			@Override
 			public void onSuccess(String result) {
@@ -17,9 +23,7 @@ public class UploadContacts {
 					JSONObject jsonObject = new JSONObject(result);
 					switch (jsonObject.getInt(Config.KEY_STATUS)) {
 					case Config.RESULT_STATUS_SUCCESS:
-						if (successCallBack != null) {
-							successCallBack.onSuccess();
-						}
+						successCallBack.onSuccess();
 						break;
 					case Config.RESULT_STATUS_INVALID_TOKEN:
 						if (failCallBack != null) {
@@ -38,7 +42,6 @@ public class UploadContacts {
 						failCallBack.onFail(Config.RESULT_STATUS_FAIL);
 					}
 				}
-
 			}
 		}, new NetConnection.FailCallBack() {
 
@@ -48,8 +51,8 @@ public class UploadContacts {
 					failCallBack.onFail(Config.RESULT_STATUS_FAIL);
 				}
 			}
-		}, Config.KEY_ACTION, Config.ACTION_UPLOAD_CONTACTS, Config.KEY_PHONE_MD5, phone_md5, Config.KEY_TOKEN, token,
-				Config.KEY_CONTACTS, contacts);
+		}, Config.KEY_ACTION, Config.KEY_PUB_COMMENT, Config.KEY_TOKEN, token, Config.KEY_PHONE_MD5, phone_md5,
+				Config.KEY_MSG_ID, msgId, Config.KEY_CONTENT, content);
 	}
 
 	public static interface SuccessCallBack {
@@ -59,5 +62,4 @@ public class UploadContacts {
 	public static interface FailCallBack {
 		void onFail(int errorCode);
 	}
-
 }

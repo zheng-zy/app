@@ -8,7 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.secret.Config;
-import com.secret.adp.Message;
+import com.secret.md.Message;
 
 public class TimeLine {
 	public TimeLine(String phone_md5, String token, int page, int perpage, final SuccessCallBack successCallBack,

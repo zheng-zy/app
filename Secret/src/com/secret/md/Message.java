@@ -1,4 +1,4 @@
-package com.secret.adp;
+package com.secret.md;
 
 public class Message {
 	private String msgId;

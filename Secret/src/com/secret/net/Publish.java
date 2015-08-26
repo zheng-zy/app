@@ -4,12 +4,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.secret.Config;
+import com.secret.net.PubComment.FailCallBack;
+import com.secret.net.PubComment.SuccessCallBack;
 
-public class UploadContacts {
+/**
+ * 
+ * @author zhengzy
+ * @data 2015年8月26日 下午2:39:59
+ * @version V1.0
+ * @describe 发送消息通讯类
+ */
+public class Publish {
 
-	public void uploadContacts(String phone_md5, String token, String contacts, final SuccessCallBack successCallBack,
+	public Publish(String phone_md5, String token, String msg, final SuccessCallBack successCallBack,
 			final FailCallBack failCallBack) {
-		new NetConnection(Config.SERVER_URL, HttpMethod.GET, new NetConnection.SuccessCallBack() {
+		new NetConnection(Config.SERVER_URL, HttpMethod.POST, new NetConnection.SuccessCallBack() {
 
 			@Override
 			public void onSuccess(String result) {
@@ -17,9 +26,7 @@ public class UploadContacts {
 					JSONObject jsonObject = new JSONObject(result);
 					switch (jsonObject.getInt(Config.KEY_STATUS)) {
 					case Config.RESULT_STATUS_SUCCESS:
-						if (successCallBack != null) {
-							successCallBack.onSuccess();
-						}
+						successCallBack.onSuccess();
 						break;
 					case Config.RESULT_STATUS_INVALID_TOKEN:
 						if (failCallBack != null) {
@@ -38,7 +45,6 @@ public class UploadContacts {
 						failCallBack.onFail(Config.RESULT_STATUS_FAIL);
 					}
 				}
-
 			}
 		}, new NetConnection.FailCallBack() {
 
@@ -48,8 +54,8 @@ public class UploadContacts {
 					failCallBack.onFail(Config.RESULT_STATUS_FAIL);
 				}
 			}
-		}, Config.KEY_ACTION, Config.ACTION_UPLOAD_CONTACTS, Config.KEY_PHONE_MD5, phone_md5, Config.KEY_TOKEN, token,
-				Config.KEY_CONTACTS, contacts);
+		}, Config.KEY_ACTION, Config.ACTION_PUBLISH, Config.KEY_PHONE_MD5, phone_md5, Config.KEY_TOKEN, token,
+				Config.KEY_MSG, msg);
 	}
 
 	public static interface SuccessCallBack {

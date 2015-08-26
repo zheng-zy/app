@@ -5,7 +5,8 @@ import android.content.SharedPreferences.Editor;
 
 public class Config {
 	// public static final String SERVER_URL = "http://demo.eoeschool.com/api/v1/nimings/io";
-	public static final String SERVER_URL = "http://192.168.1.101:8080/SecretServer/api.jsp";
+//	public static final String SERVER_URL = "http://192.168.1.101:8080/SecretServer/api.jsp";
+	public static final String SERVER_URL = "http://192.168.15.34:8080/SecretServer/api.jsp";
 
 	public static final String KEY_TOKEN = "token";
 	public static final String KEY_ACTION = "action";
@@ -20,6 +21,9 @@ public class Config {
 	public static final String KEY_MSG_ID = "msgId";
 	public static final String KEY_MSG = "msg";
 	public static final String KEY_ITEMS = "items";
+	public static final String KEY_COMMENTS = "comments";
+	public static final String KEY_CONTENT = "content";
+	public static final String KEY_PUB_COMMENT = "pub_comment";
 
 	public static final int RESULT_STATUS_SUCCESS = 1;
 	public static final int RESULT_STATUS_FAIL = 0;
@@ -32,25 +36,29 @@ public class Config {
 	public static final String ACTION_LOGIN = "login";
 	public static final String ACTION_UPLOAD_CONTACTS = "upload_contacts";
 	public static final String ACTION_TIMELINE = "timeline";
+	public static final String ACTION_GET_COMMENT = "get_comment";
+	public static final String ACTION_PUBLISH = "publish";
 
 
+	public static final int ACTIVITY_RESULT_NEED_REFRESH = 10000;
 
 
 	/**
-	 * 鑾峰彇缂撳瓨鍦╯harepreferences涓殑閿�瀵�
+	 * sharepreferences获取
 	 * @param context
-	 * @param key		閿�锛欿EY_TOKEN  KEY_PHONE_NUM
+	 * @param key		KEY_TOKEN  KEY_PHONE_NUM
 	 * @return
 	 */
 	 
+	@SuppressWarnings("static-access")
 	public static String getCachedValue(Context context, String key) {
 		return context.getSharedPreferences(APP_ID, context.MODE_PRIVATE).getString(key, null);
 	}
 
 	/**
-	 * 瀛樺偍sharepreferences涓殑閿�瀵�
+	 * sharepreferences存储
 	 * @param context
-	 * @param key		閿�锛欿EY_TOKEN  KEY_PHONE_NUM
+	 * @param key		KEY_TOKEN  KEY_PHONE_NUM
 	 * @param value
 	 */
 	 

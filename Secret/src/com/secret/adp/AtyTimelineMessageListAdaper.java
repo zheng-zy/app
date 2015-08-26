@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.secret.R;
+import com.secret.md.Message;
 
 public class AtyTimelineMessageListAdaper extends BaseAdapter {
 
@@ -18,7 +19,7 @@ public class AtyTimelineMessageListAdaper extends BaseAdapter {
 	private Context context = null;
 
 	public void clear() {
-		this.messages.clear();
+		messages.clear();
 		notifyDataSetChanged();
 	}
 
@@ -37,12 +38,12 @@ public class AtyTimelineMessageListAdaper extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		return this.messages.size();
+		return messages.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		return this.messages.get(position);
+		return messages.get(position);
 	}
 
 	@Override
@@ -59,13 +60,13 @@ public class AtyTimelineMessageListAdaper extends BaseAdapter {
 			holder = new ViewHolder();
 			holder.msg = (TextView) convertView.findViewById(R.id.tvMsg);
 			holder.msgId = (TextView) convertView.findViewById(R.id.tvMsgId);
-			holder.msg.setText(this.messages.get(position).getMsg());
-			holder.msgId.setText(this.messages.get(position).getMsgId());
+			holder.msg.setText(messages.get(position).getMsg());
+			holder.msgId.setText(messages.get(position).getMsgId());
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
-			holder.msg.setText(this.messages.get(position).getMsg());
-			holder.msgId.setText(this.messages.get(position).getMsgId());
+			holder.msg.setText(messages.get(position).getMsg());
+			holder.msgId.setText(messages.get(position).getMsgId());
 		}
 
 		return convertView;
